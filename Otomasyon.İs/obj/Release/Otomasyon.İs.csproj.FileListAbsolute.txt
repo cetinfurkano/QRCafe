@@ -1,0 +1,10 @@
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\bin\Release\Otomasyon.İs.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\bin\Release\Otomasyon.İs.pdb
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\bin\Release\Otomasyon.VeriErisim.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\bin\Release\Otomasyon.Veriler.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\bin\Release\Otomasyon.VeriErisim.pdb
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\bin\Release\Otomasyon.Veriler.pdb
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\obj\Release\Otomasyon.İs.csprojAssemblyReference.cache
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\obj\Release\Otomasyon.İs.csproj.CopyComplete
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\obj\Release\Otomasyon.İs.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.İs\obj\Release\Otomasyon.İs.pdb

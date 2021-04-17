@@ -1,0 +1,41 @@
+﻿body {
+}
+
+.card {
+    background-color: white !important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 20px 20px 20px 7px;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    }
+
+.container {
+    padding: 2px 16px;
+    position: relative;
+    left: 15px;
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+#fiyat {
+    font-size: 15px;
+    font-weight: 900;
+}
+
+#puan {
+    font-size: 14px;
+}
+
+#sepetBtn {
+    float: right;
+    position: relative;
+    font-size: 18px;
+    right: 20px;
+}

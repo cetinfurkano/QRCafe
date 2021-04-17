@@ -1,0 +1,5 @@
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.Veriler\bin\Release\Otomasyon.Veriler.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.Veriler\bin\Release\Otomasyon.Veriler.pdb
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.Veriler\obj\Release\Otomasyon.Veriler.csprojAssemblyReference.cache
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.Veriler\obj\Release\Otomasyon.Veriler.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.Veriler\obj\Release\Otomasyon.Veriler.pdb

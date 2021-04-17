@@ -1,0 +1,36 @@
+﻿@model Otomasyon.Veriler.Concrete.Musteri
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="content-wrapper">
+        <div class="container">
+            <form id="musteri_form" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Ad">Ad</label>
+                    <input type="text" name="Ad" id="Ad" class="form-control" placeholder="Adınızı giriniz" />
+                </div>
+                <div class="form-group">
+                    <label for="Soyad">Soyad</label>
+                    <input type="text" name="Soyad" id="Soyad" class="form-control" placeholder="Soyadınızı giriniz" />
+                </div>
+                <div class="form-group">
+                    <label for="KullaniciAdi">Kullanıcı Adı</label>
+                    <input type="text" name="KullaniciAdi" id="KullaniciAdi" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Parola">Parola</label>
+                    <input type="password" name="Parola" id="Parola" class="form-control" />
+                </div>
+                <button id="tikla" onclick="UyeOl()" class="btn btn-primary sh-hover">Üye Ol</button>
+            </form>
+        </div>
+    </div>
+@section scripts{
+    <script type="text/javascript">
+
+    </script>
+    }
+

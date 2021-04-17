@@ -1,0 +1,109 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/plugins/iCheck/square/blue.css">
+
+    <link href="~/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <h2>Üyelik Formu</h2>
+            </div>
+            <form id="uye_form" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Ad">Ad</label>
+                    <input type="text" name="Ad" id="Soyad" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="Soyad">Soyad</label>
+                    <input type="text" name="Soyad" id="Soyad" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="KullaniciAdi">Kullanıcı Adı</label>
+                    <input type="text" name="KullaniciAdi" id="KullaniciAdi" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="Parola">Parola</label>
+                    <input type="password" name="Parola" id="Parola" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="Eposta">E-Posta</label>
+                    <input type="email" name="Eposta" id="Eposta" class="form-control" required />
+                </div>
+                <button type="button" onclick="UyeOl()" class="btn btn-primary">Üye Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        function UyeOl() {
+            var formData = new FormData(document.getElementById("uye_form"));
+
+            $.ajax({
+                type: "POST",
+                url: "../Musteri/Index",
+                data: formData,
+                async: true,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data);
+                    if (data.durum) {
+                        swal({
+                            title: "Üyelik İşlemi",
+                            text: "Başarıyla üye Oldunuz",
+                            type: 'success',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Tamam',
+                            html: true
+                        }, function () {
+                            window.location.href = '@Url.Action("Login","Login")'
+                        });
+                    }
+                    else {
+                        Alert_Error("Başarısız Üyellik");
+                    }
+                },
+                error: function (data) {
+                    console.log(data.responseText);
+                }
+            });
+        }
+    </script>
+
+    <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/Content/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <script src="~/Content/dist/js/adminlte.min.js"></script>
+    <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/sweetalert/sweetalert-dev.js"></script>
+
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script src="~/Scripts/Alert.js"></script>
+
+</body>
+</html>

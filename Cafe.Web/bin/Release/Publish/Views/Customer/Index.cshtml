@@ -1,0 +1,137 @@
+﻿@using Otomasyon.İs.Concrete
+@using Otomasyon.VeriErisim.Concrete.Sql
+@using Otomasyon.Veriler.Concrete;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/plugins/iCheck/square/blue.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <style type="text/css">
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <h2>Qr Kafe Üyelik Formu</h2>
+        </div>
+        <hr />
+        <div class="container">
+            <form id="uye_form" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Ad">Ad</label>
+                    <input type="text" name="Ad" id="Ad" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="Soyad">Soyad</label>
+                    <input type="text" name="Soyad" id="Soyad" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="KullaniciAdi">Kullanıcı Adı</label>
+                    <input type="text" name="KullaniciAdi" id="KullaniciAdi" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="Parola">Parola</label>
+                    <input type="password" name="Parola" id="Parola" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="Eposta">Email</label>
+                    <input type="email" name="Eposta" id="Eposta" class="form-control" required />
+                </div>
+                <button id="üyeBtn" onclick="UyeOl()" type="button" class="btn btn-primary">Üye Ol</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function UyeOl() {
+            LoadinModal("Üye Olma İşlemi","Lütfen Bekleyiniz")
+            var formData = new FormData(document.getElementById("uye_form"));
+            var name = document.forms["uye_form"]["Ad"].value;
+            var surname = document.forms["uye_form"]["Soyad"].value;
+            var kulAd = document.forms["uye_form"]["KullaniciAdi"].value;
+            var pswrd = document.forms["uye_form"]["Parola"].value;
+            var epsta = document.forms["uye_form"]["Eposta"].value;
+
+            if (name == "") {
+                Alert_Error("Bu Alan Boş Bırakılamaz")
+                return false;
+            }
+            if (surname =="") {
+                   Alert_Error("Bu Alan Boş Bırakılamaz")
+                return false;
+            }
+            if (kulAd =="") {
+                   Alert_Error("Bu Alan Boş Bırakılamaz")
+                return false;
+            }
+            if (pswrd =="") {
+                   Alert_Error("Bu Alan Boş Bırakılamaz")
+                return false;
+            }
+            if (epsta == "") {
+                Alert_Error("Bu Alan Boş Bırakılamaz")
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "../Customer/Index",
+                data: formData,
+                async: true,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                         if (data.durum) {
+                            swal({
+                                title: "Üye Olma",
+                                text: "Başarıyla Üye Olundu ",
+                                type: 'success',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Tamam',
+                                html: true
+                            }, function () {
+                                window.location.href = '@Url.Action("Login","Login")'
+                            });
+                        }
+                     else {
+                             Alert_Error("Başarısız Üyelik", data.msg);
+                              document.getElementById("uye_form").reset();
+                    }
+                }, error: function (data) {
+                    console.log(data.responseText);
+                }
+            });
+        }
+        function formKontrol() {
+
+        }
+
+    </script>
+    <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Content/plugins/iCheck/icheck.min.js"></script>
+    <script src="~/Scripts/sweetalert/sweetalert-dev.js"></script>
+    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
+    <script src="~/Scripts/Alert.js"></script>
+
+</body>
+</html>

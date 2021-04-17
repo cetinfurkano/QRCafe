@@ -1,0 +1,36 @@
+﻿@using Otomasyon.İs.Concrete;
+@using Otomasyon.VeriErisim.Concrete.Sql;
+@using Otomasyon.Veriler.Concrete;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    KategoriYonetimi kategoriYonetimi = new KategoriYonetimi(new SQLKategoriDal());
+    var kategoriler = kategoriYonetimi.HepsiniGetir();
+    var xID = int.Parse(Request.QueryString["ID"]);
+}
+@section css{
+    <style type="text/css">
+        .row {
+            margin-top: 50px;
+            position: relative;
+            left: 50px;
+        }
+    </style>
+}
+
+<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in kategoriler)
+            {
+                if (item.UstKategori.UstKategoriId == xID)
+                {
+                    <a style="border:1px solid #3C8DBC;" href="#" class="btn btn-primary">@item.KategoriAdi</a>
+                }
+            }
+        </div>
+    </div>
+</div>

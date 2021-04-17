@@ -1,0 +1,70 @@
+﻿@using Otomasyon.İs.Concrete
+@using Otomasyon.VeriErisim.Concrete.Sql
+
+@{
+    ViewBag.Title = "Anasayfa";
+}
+@{
+    UrunYonetimi urunYonetimi = new UrunYonetimi(new SQLUrunDal());
+    var urunler = urunYonetimi.HepsiniGetir();
+
+    UrunResimYonetimi urunResimYonetimi = new UrunResimYonetimi(new SQLUrunResmiDal());
+    var urunresim = urunResimYonetimi.HepsiniGetir();
+}
+@section css {
+    <style type="text/css">
+       
+    </style>
+}
+<link href="~/Content/Urun.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div class="container">
+
+        <h3 style="text-align:center; position:relative; right:25px;">Hızlı Sipariş</h3>
+        @foreach (var item in urunler)
+        {
+            if (item.AktifMi && item.StokDuzeyi > 0)
+            {
+
+                <div id="card-@item.UrunId" class="card" style="width:300px; height:450px; background-color:white;">
+                    @foreach (var subitem in urunresim)
+                    {
+                        if (subitem.Urun.UrunId == item.UrunId)
+                        {
+                            <img src="../Content/@subitem.ResimYolu" alt="Urun" style="width:100%" height="185">
+                        }
+                    }
+                    <div class="container">
+                        <h4><b> @item.UrunAdi</b></h4>
+                        <p id="fiyat"><strong>₺ @item.Fiyat - @item.UrunPuani&nbsp;<i class="fab fa-product-hunt"></i></strong></p>
+                        <p id="puan">Alış Puan @item.AlisPuani &nbsp;<i class="fab fa-product-hunt"></i></p>
+                        <p>QrKafe ürünlerini sipariş verdikçe puan</p>
+                        <p>kazanıp ücretsiz ürün alabilirsiniz</p>
+                    </div>
+                    <br />
+                    <br />
+                    <form id="sepetEkle_form">
+                        <input type="hidden" id="UrunId" name="UrunId" value="@item.UrunId" />
+                        <button style="position:relative; left:97px; top:8px;" type="button" onclick="SepeteEkle(@item.UrunId);" class="btn btn-primary"><i class="fas fa-shopping-basket"></i>&nbsp;Sepete Ekle</button>
+                    </form>
+                </div>
+            }
+
+        }
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+
+        function SepeteEkle(UrunId) {
+            LoadinModal("Sepete Ekleniyor", "Lütfen Bekleyiniz...");
+            $.ajax({
+                url: '../Siparis/SepeteEkle',
+                data: { UrunId: UrunId }
+            }).done(function () {
+                Alert_Success("Sepete Ekleme", "Ürün Başarıyla Sepete Eklendi");
+            });
+        }
+    </script>
+}
+

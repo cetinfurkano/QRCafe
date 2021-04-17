@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBDEA506-1683-441B-89BD-A763A1D91C23}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Otomasyon.KullaniciArayuzu</RootNamespace>
+    <AssemblyName>Otomasyon.KullaniciArayuzu</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concrete\Bilancolar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\Bilancolar.Designer.cs">
+      <DependentUpon>Bilancolar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\GunSonuBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\GunSonuBilgileri.Designer.cs">
+      <DependentUpon>GunSonuBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\KategoriAyarlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\KategoriAyarlari.Designer.cs">
+      <DependentUpon>KategoriAyarlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\MasaBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\MasaBilgileri.Designer.cs">
+      <DependentUpon>MasaBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\MasaSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\MasaSil.Designer.cs">
+      <DependentUpon>MasaSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\MusteriBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\MusteriBilgileri.Designer.cs">
+      <DependentUpon>MusteriBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\UrunAyarları.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\UrunAyarları.Designer.cs">
+      <DependentUpon>UrunAyarları.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\UstKategoriAyarlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\UstKategoriAyarlari.Designer.cs">
+      <DependentUpon>UstKategoriAyarlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\BosVeriGirmeHatasi.cs" />
+    <Compile Include="Exceptions\VeriTekrariHatasi.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Concrete\MasaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Concrete\MasaEkle.Designer.cs">
+      <DependentUpon>MasaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedButton2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Concrete\Bilancolar.resx">
+      <DependentUpon>Bilancolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\GunSonuBilgileri.resx">
+      <DependentUpon>GunSonuBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\KategoriAyarlari.resx">
+      <DependentUpon>KategoriAyarlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\MasaBilgileri.resx">
+      <DependentUpon>MasaBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\MasaEkle.resx">
+      <DependentUpon>MasaEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\MasaSil.resx">
+      <DependentUpon>MasaSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\MusteriBilgileri.resx">
+      <DependentUpon>MusteriBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\UrunAyarları.resx">
+      <DependentUpon>UrunAyarları.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Concrete\UstKategoriAyarlari.resx">
+      <DependentUpon>UstKategoriAyarlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Otomasyon.VeriErisim\Otomasyon.VeriErisim.csproj">
+      <Project>{17B9F51D-1B56-4928-94AE-FE4C9A584844}</Project>
+      <Name>Otomasyon.VeriErisim</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Otomasyon.Veriler\Otomasyon.Veriler.csproj">
+      <Project>{C9515572-92DC-4874-959F-A654C580B904}</Project>
+      <Name>Otomasyon.Veriler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Otomasyon.İs\Otomasyon.İs.csproj">
+      <Project>{FF87C7C8-555A-4F7C-B82B-99C615571A59}</Project>
+      <Name>Otomasyon.İs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstracts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qrcafelogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tamekran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kapat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flwbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userbg.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

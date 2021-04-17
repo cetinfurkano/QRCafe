@@ -1,0 +1,99 @@
+﻿@using Otomasyon.İs.Concrete;
+@using Otomasyon.VeriErisim.Concrete.Sql;
+@using Otomasyon.Veriler.Concrete;
+@using System.Collections.Generic;
+@using System.Web;
+@using System.Web.Mvc;
+
+@model  Cafe.Web.Models.GecmisSiparisler
+
+@{
+    ViewBag.Title = "Profil Sayfası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@{ GecmisSiparisYonetimi gecmisSiparisYonetimi = new GecmisSiparisYonetimi(new SQLGecmisSiparisDal());
+    var liste = gecmisSiparisYonetimi.HepsiniGetir();
+
+}
+
+@{ GecmisDetayYonetimi gecmisDetayYonetimi = new GecmisDetayYonetimi(new SQLGecmisDetayDal());
+    var liste1 = gecmisDetayYonetimi.HepsiniGetir();
+    var login = HttpContext.Current.User.Identity.Name;
+
+}
+@section css{
+    <style type="text/css">
+        .box {
+            top: 30px;
+        }
+        #btnGeriDon {
+            float: right;
+            position: relative;
+            top: 15px;
+            right:5px;
+        }
+        .yazi{
+            font-size:11px;
+        }
+    </style>
+}
+<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            <a id="btnGeriDon" class="btn btn-primary" href="/Home/Index"><i class="fas fa-home"></i>&nbsp;Alışverişe Devam Et</a>
+          
+            
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"><strong>Geçmiş Sipariş Listesi</strong></h3>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Ürünler</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Fiyat</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Sipariş Tarihi </th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Sipariş Zamanı </th>
+                                        <th style="" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"> Teslim Tarihi</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Teslim Zamanı </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in liste)
+                                    {
+                                        foreach (var item2 in liste1)
+                                        {
+                                            if (item.Musteri.KullaniciAdi == login)
+                                            {
+                                                if (item2.GecmisSiparis.GecmisSiparisId == item.GecmisSiparisId)
+                                                {
+
+                                                    <tr id="tr-@item.GecmisSiparisId" role="row" class="odd">
+                                                        <td class="yazi">@item2.GecmisUrun.UrunAdi</td>
+                                                        <td class="yazi">@item2.GecmisFiyat</td>
+                                                        <td class="yazi">@item.VerilmeTarihi</td>
+                                                        <td class="yazi">@item.VerilmeZamani</td>
+                                                        <td class="yazi">@item.TeslimTarihi</td>
+                                                        <td class="yazi">@item.TeslimZamani</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

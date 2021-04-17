@@ -1,0 +1,90 @@
+﻿@using Otomasyon.İs.Concrete;
+@using Otomasyon.VeriErisim.Concrete.Sql;
+@using System.Web;
+@using System.Web.Mvc;
+
+@model Cafe.Web.Helper.SiparisDetay
+
+@{
+    ViewBag.Title = " Sipariş Tamamla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+
+    MasaBilgiYonetimi masaBilgiYonetimi = new MasaBilgiYonetimi(new SQLMasaBilgileriDal());
+
+    var bilgiler = masaBilgiYonetimi.HepsiniGetir();
+    var login = User.Identity.Name;
+
+    var oturdu = false;
+}
+<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <h2>Sipariş Bilgileriniz</h2>
+            </div>
+        </div>
+        <hr />
+        <form action="../Siparis/Tamamla" method="post">
+            @Html.ValidationSummary()
+
+            @if (bilgiler.Count > 0)
+            {
+                foreach (var item in bilgiler)
+                {
+                    if (item.Musteri.KullaniciAdi.Equals(login))
+                    {
+                        oturdu = true;
+                        <div class="form-group">
+                            <label for="KartAdi">Kartın Üstündeki İsim</label>
+                            <input type="text" name="KartAdi" id="KartAdi" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="KartNo">Kart Numarası</label>
+                            <input type="text" name="KartNo" id="KartNo" class="form-control" />
+                        </div>
+                        break;
+                    }
+                }
+                if (oturdu == false)
+                {
+                    <div class="form-group">
+                        <label for="KartAdi">Kartın Üstündeki İsim</label>
+                        <input type="text" name="KartAdi" id="KartAdi" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="KartNo">Kart Numarası</label>
+                        <input type="text" name="KartNo" id="KartNo" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="MasaNumarasi">Masa Numarası</label>
+                        <input type="text" class="form-control" name="MasaNumarasi" id="MasaNumarasi" required="" />
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="form-group">
+                    <label for="KartAdi">Kartın Üstündeki İsim</label>
+                    <input type="text" name="KartAdi" id="KartAdi" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="KartNo">Kart Numarası</label>
+                    <input type="text" name="KartNo" id="KartNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="MasaNumarasi">Masa Numarası</label>
+                    <input type="text" class="form-control" name="MasaNumarasi" id="MasaNumarasi" required="" />
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i>&nbsp;Siparişi Tamamla</button>
+        </form>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

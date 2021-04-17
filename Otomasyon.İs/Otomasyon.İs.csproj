@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF87C7C8-555A-4F7C-B82B-99C615571A59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Otomasyon.İs</RootNamespace>
+    <AssemblyName>Otomasyon.İs</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstracts\Yonetim.cs" />
+    <Compile Include="Concrete\GecmisDetayYonetimi.cs" />
+    <Compile Include="Concrete\GecmisSiparisYonetimi.cs" />
+    <Compile Include="Concrete\GunSonuYonetimi.cs" />
+    <Compile Include="Concrete\KategoriYonetimi.cs" />
+    <Compile Include="Concrete\MasaBilgiYonetimi.cs" />
+    <Compile Include="Concrete\MasaYonetimi.cs" />
+    <Compile Include="Concrete\MusteriYonetimi.cs" />
+    <Compile Include="Concrete\SiparisDetayYonetimi.cs" />
+    <Compile Include="Concrete\SiparisYonetimi.cs" />
+    <Compile Include="Concrete\UrunResimYonetimi.cs" />
+    <Compile Include="Concrete\UrunYonetimi.cs" />
+    <Compile Include="Concrete\UstKategoriYonetimi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Otomasyon.VeriErisim\Otomasyon.VeriErisim.csproj">
+      <Project>{17B9F51D-1B56-4928-94AE-FE4C9A584844}</Project>
+      <Name>Otomasyon.VeriErisim</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Otomasyon.Veriler\Otomasyon.Veriler.csproj">
+      <Project>{C9515572-92DC-4874-959F-A654C580B904}</Project>
+      <Name>Otomasyon.Veriler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

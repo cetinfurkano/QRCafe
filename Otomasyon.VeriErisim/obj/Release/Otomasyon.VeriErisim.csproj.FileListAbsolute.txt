@@ -1,0 +1,10 @@
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\bin\Release\Otomasyon.VeriErisim.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\bin\Release\Otomasyon.VeriErisim.pdb
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\bin\Release\AutoMapper.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\bin\Release\Otomasyon.Veriler.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\bin\Release\Otomasyon.Veriler.pdb
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\bin\Release\AutoMapper.xml
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\obj\Release\Otomasyon.VeriErisim.csprojAssemblyReference.cache
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\obj\Release\Otomasyon.VeriErisim.csproj.CopyComplete
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\obj\Release\Otomasyon.VeriErisim.dll
+C:\Users\yakup\Source\Repos\KafeOtomasyonu\.vs\KafeOtomasyonu\v15\OtomasyonSolution\Otomasyon.VeriErisim\obj\Release\Otomasyon.VeriErisim.pdb

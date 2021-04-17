@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Hakkımızda</title>
+    <style type="text/css">
+        #menu {
+            background: #3C8DBC;
+        }
+        #tikla {
+            background: #3C8DBC;
+        }
+        .img-thumbnail {
+            height: 457.92px;
+            padding: 3px;
+            border: 1px solid darkgrey;
+            width: 312px;
+        }
+        #imgDiv {
+            position: relative;
+            left: 5px;
+        }
+        .col-md-4 {
+            padding-top: 15px;
+        }
+        .jumbotron {
+            background:lightblue;
+        }
+        #kafeAd{
+            font-weight:900;
+        }
+    </style>
+</head>
+<body>
+    <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light-blue">
+        <div class="container">
+            <a class="navbar-brand" href="#"><strong id="kafeAd">QR KAFE</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Yakında<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Yakında</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div  class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Qr Kafeye Hoş Geldiniz</h1>
+            <p class="lead">Qr Kafeye geldiğinizde qr kod okutup sistemimize giriş yapabilirsiniz.Ürünler arasından istediğinizi seçip sipariş verip verdiğiniz siparişle puanlar kazanabilirsiniz</p>
+            <hr class="my-4">
+            <p>Müşterilerimize en iyi hizmet için çalışıyoruz</p>
+        </div>
+    </div>
+    <hr />
+    <div id="imgDiv" class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="~/Content/KafeResimleri/Giris.jpeg" alt="..." class="img-thumbnail" />
+            </div>
+            <div class="col-md-4">
+                <img src="~/Content/KafeResimleri/HizliSiparis.jpeg" alt="..." class="img-thumbnail" />
+            </div>
+            <div class="col-md-4">
+                <img src="~/Content/KafeResimleri/Sepet.jpeg" alt="..." class="img-thumbnail" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <hr />
+
+    <footer>
+        <div id="footer">
+            <div class="container text-center">
+                <div class="row text-center">
+                    <strong>Copyright &copy; @DateTime.Now.Year <a href="#">QrKafe</a></strong> Tüm Hakları Saklıdır.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

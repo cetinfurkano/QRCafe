@@ -1,0 +1,37 @@
+﻿@using Otomasyon.İs.Concrete
+@using Otomasyon.VeriErisim.Concrete.Sql
+@model List<Otomasyon.Veriler.Concrete.UstKategori>
+
+@{
+    KategoriYonetimi kategoriYonetimi = new KategoriYonetimi(new SQLKategoriDal());
+    var kategoriler = kategoriYonetimi.HepsiniGetir();
+
+}
+@foreach (var item in Model)
+{
+    if (item.AktifMi)
+    {
+        <li id="item1" class="treeview">
+            <a href="/Category/Index?ID=@item.UstKategoriId">
+                <i class="fas fa-list"></i>&nbsp;<span>@item.UstKategoriAdi</span>
+                <span class="pull-right-container">
+                </span>
+            </a>
+
+            <ul class="treeview-menu">
+                @foreach (var subitem in kategoriler)
+                {
+                    if (subitem.UstKategori.UstKategoriId == item.UstKategoriId)
+                    {
+                        if (subitem.AktifMi)
+                        {
+                            <li class="active"><a href="/Urun/Index?ID=@subitem.KategoriId"><i class="fas fa-angle-right"></i>&nbsp; @subitem.KategoriAdi</a></li>
+                        }
+                    }
+                }
+
+            </ul>
+        </li>
+    }
+
+}

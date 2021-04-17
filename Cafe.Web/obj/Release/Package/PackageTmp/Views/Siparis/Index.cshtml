@@ -1,0 +1,130 @@
+﻿@using Otomasyon.İs.Concrete
+@using Otomasyon.VeriErisim.Concrete.Sql
+@using Otomasyon.Veriler.Concrete;
+@{
+    ViewBag.Title = "Sepetim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model  Cafe.Web.Helper.Sepet
+
+@section css{
+    <style type="text/css">
+        .box {
+            top: 30px;
+        }
+
+        #uyari {
+            position: relative;
+            top: 20px;
+        }
+        #puanbtn {
+            float: right;
+            position: relative;
+            right: 18px;
+        }
+    </style>
+}
+<div class="content-wrapper">
+    <div class="container">
+
+        @if (Model.sepet_s.Count > 0)
+        {
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Sipariş Listesi</h3>
+                    <div class="row">
+                        <a id ="puanbtn" href="../Siparis/PuanlaTamamla" class="btn btn-primary"><i class="fas fa-arrow-right"></i>&nbsp;Puan ile öde</a>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+                            <div class="col-sm-12">
+                                <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Ürün Adı</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Ürün Fiyatı</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Ürün Puanı</th>
+                                            <th style="" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"> Ürün Adeti</th>
+                                            <th style="" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">İşlem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.sepet_s)
+                                        {
+                                            <tr id="tr-@item.Urun.UrunId" role="row" class="odd">
+                                                <td class="sorting_1">@item.Urun.UrunAdi</td>
+                                                <td>₺ @item.Urun.Fiyat</td>
+                                                <td>@item.Urun.UrunPuani &nbsp;<i class="fab fa-product-hunt"></i></td>
+                                                <td>@item.Quantity</td>
+                                                <td>
+                                                    <form action="../Siparis/SepettenSil" id="sil_@item.Urun.UrunId">
+                                                        <input type="hidden" id="UrunId" name="UrunId" value="@item.Urun.UrunId" />
+                                                        <button class="btn btn-danger" onclick="SepettenSil(@item.Urun.UrunId)" type="button"><i class="fas fa-trash-alt"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="4">Toplam Fiyat
+                                        </td>
+                                        <td>@Model.Toplam().ToString("c")</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">ToplamPuan</td>
+                                        <td>@Model.ToplamAlisPuani()</td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="text-center">
+                                    <a href="../Home/Index" class="btn btn-primary"><i class="fas fa-home"></i>&nbsp;Alışverişe Devam Et</a>
+                                    <a href="../Siparis/Tamamla" class="btn btn-primary"><i class="fas fa-arrow-right"></i>&nbsp;İlerle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+        }
+        else
+        {
+            <div style="background-color:darkgoldenrod !important;" id="uyari" class="alert alert-warning" role="alert">
+                Sepetinizde Ürün Bulunmamaktadır.
+            </div>
+            <div class="text-center">
+                <a  style="position:relative; top:5px;" href="../Home/Index" class="btn btn-primary"><i class="fas fa-home"></i>&nbsp;Alışverişe Devam Et</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+
+         function SepettenSil(UrunId) {
+             swal({
+                title: "Secili Olan Ürün Silinecektir.",
+                text: "Kalıcı Olarak Silinmesi İçin Onay Veriniz.",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Evet Sİl",
+                cancelButtonText: "Vazgeç",
+                closeOnConfirm: false,
+                html: true
+            },
+                function () {
+                    document.getElementById("sil_" + UrunId).submit();
+                });
+
+        }
+    </script>
+
+}
